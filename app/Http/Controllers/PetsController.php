@@ -9,6 +9,9 @@
 namespace App\Http\Controllers;
 
 
+use App\Pet;
+use Illuminate\Http\Request;
+
 class PetsController extends Controller
 {
     public function __construct()
@@ -17,26 +20,87 @@ class PetsController extends Controller
     }
 
     public function index() {
-        return view('index');
+        $pets = Pet::paginate(10);
+        return view('list-pets', $pets);
     }
 
     public function add()
     {
-        return view('addPet');
+        return view('add-pet');
+    }
+
+    public function store(Request $request)
+    {
+        $p = new Pet();
+        $p->name = $request->input('name');
+        $p->type = $request->input('type');
+
+        $file = $request->file('photo');
+
+        $newFileName = rand();
+        $newFileName .= '.'.$file->getClientOriginalExtension();
+        $file->move('photos',$newFileName);
+
+        $dbPath = "photos/$newFileName";
+
+        $p->photo = $dbPath;
+        $p->save();
+
+        return back()->with('message','successfully added!');
     }
 
     public function edit($id)
     {
-        return view('editPet');
+        $pet = Pet::find($id);
+
+        if($pet == null)
+        {
+            return redirect(404);
+        }
+
+        return view('edit-pet',['pet'=>$pet]);
+    }
+
+    public function update($id, Request $request)
+    {
+        $pet = Pet::find($id);
+
+        if($pet == null)
+        {
+            return redirect(404);
+        }
+
+        $pet->name = $request->input('name');
+        $pet->type = $request->input('type');
+
+        $file = $request->file('photo');
+
+        if($file)
+        {
+            File::delete($pet->imagePath);
+            $newFileName = rand();
+            $newFileName .= '.'.$file->getClientOriginalExtension();
+            $file->move('photos',$newFileName);
+            $dbPath = "photos/$newFileName";
+            $pet->imagePath = $dbPath;
+        }
+
+        $pet->save();
+
+        return back()->with('message','successfully edited!');
     }
 
     public function delete($id)
     {
-        return view('deletePet');
-    }
+        $pet = Pet::find($id);
 
-    public function store($id)
-    {
+        if($pet == null)
+        {
+            return redirect(404);
+        }
 
+        $pet->delete();
+
+        return back()->with('message','successfully deleted!');
     }
 }

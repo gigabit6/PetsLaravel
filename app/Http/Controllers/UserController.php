@@ -8,6 +8,8 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+
 class UserController extends Controller
 {
 
@@ -18,7 +20,8 @@ class UserController extends Controller
 
     public function index()
     {
-        return view('index');
+        $viewModel['users']=User::paginate(15);
+        return view('index', $viewModel);
     }
 
     public function add()
