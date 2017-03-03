@@ -9,7 +9,7 @@
 
 @section('content')
 <div class="col-md-12">
-    @foreach($products as $p)
+    @foreach($pets as $p)
     <div class="col-sm-4 col-lg-4 col-md-4">
         <div class="thumbnail">
             @if(Auth::check() && Auth::user()->isAdmin == 1)
@@ -18,16 +18,16 @@
                 {{csrf_field()}}
                 <input type="hidden" value="DELETE" name="_method">
             </form>
-            <a href="{{route('admin-products.edit',$p->id)}}" class="btn btn-info">edit</a>
+            <a href="{{route('pets.edit',$p->id)}}" class="btn btn-info">edit</a>
             @endif
             <img src="{{URL::asset($p->imagePath)}}" alt="" class="img-responsive">
 
             <div class="caption">
-                <h4 class="pull-right">${{$p->price}}</h4>
-                <h4><a href="{{route('preview',$p->id)}}">{{$p->title}}</a>
+                <h4 class="pull-right">${{$p->name}}</h4>
+                <h4><a href="{{route('details',$p->id)}}">{{$p->name}}</a>
                 </h4>
 
-                <p>{{$p->short_description}}</p>
+                <p>{{$p->type}}</p>
             </div>
         </div>
 

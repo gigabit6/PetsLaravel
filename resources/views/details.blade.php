@@ -15,7 +15,7 @@
                 {{session('message')}}
             </div>
         @endif
-        <h1>{{$product->title}}</h1>
+        <h1>{{$pet->name}}</h1>
 
         <div class="form-group">
             <a href="{{URL::previous()}}" class="btn btn-info">back</a>
@@ -28,7 +28,7 @@
             <p> {{$pet->type}}</p>
         </div>
         <div class="form-group">
-            <img src="{{URL::asset($product->imagePath)}}" class="img-responsive">
+            <img src="{{URL::asset($pet->imagePath)}}" class="img-responsive">
         </div>
     </div>
 @endsection

@@ -1,9 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Entities;
 
+use Eloquent;
 
-class Pet extends Eloquent{
+class Pet extends Eloquent {
     protected $table = 'user_pet';
 
     public function pet()

@@ -4,7 +4,7 @@
  * User: Gergana
  * Date: 03-Mar-17
  * Time: 5:01 PM
- *
+ */
 
 @extends('layouts.master')
 
@@ -22,12 +22,12 @@
         </div>
         <form method="POST" enctype="multipart/form-data">
             <div class="form-group">
-                <input type="text" class="form-control" name="name" value="{{$product->title}}" placeholder="enter name"
+                <input type="text" class="form-control" name="name" value="{{$pet->name}}" placeholder="enter name"
                        required="required"/>
             </div>
 
             <div class="form-group">
-                <input type="number" name="type" class="form-control" step="0.01" value="{{$product->price}}"
+                <input type="number" name="type" class="form-control" step="0.01" value="{{$pet->type}}"
                        placeholder="enter type" required="required"/>
             </div>
 
@@ -37,7 +37,7 @@
             </div>
 
             <div class="form-group">
-                <img src="{{URL::asset($product->imagePath)}}" class="img-responsive">
+                <img src="{{URL::asset($pet->imagePath)}}" class="img-responsive">
             </div>
 
             <input type="hidden" value="PUT" name="_method"/>

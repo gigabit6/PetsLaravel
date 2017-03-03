@@ -9,8 +9,11 @@
 namespace App\Http\Controllers;
 
 
-use App\Pet;
+
+use App\Entities\Pet;
 use Illuminate\Http\Request;
+use File;
+
 
 class PetsController extends Controller
 {
@@ -20,7 +23,7 @@ class PetsController extends Controller
     }
 
     public function index() {
-        $pets = Pet::paginate(10);
+        $pets['pets'] = Pet::paginate(10);
         return view('list-pets', $pets);
     }
 
@@ -34,6 +37,7 @@ class PetsController extends Controller
         $p = new Pet();
         $p->name = $request->input('name');
         $p->type = $request->input('type');
+        $p->user_id = $request->input('user_id');
 
         $file = $request->file('photo');
 
