@@ -24,7 +24,7 @@ Route::get('users/add', 'UserController@add')->name('users.add');
 Route::post('users/store', 'UserController@store');
 Route::get('users/edit/{id}', 'UserController@edit')->name('users.edit');
 Route::post('users/update/{id}', 'UserController@update');
-Route::post('users/delete/{id}', 'UserController@delete')->name('users.delete');
+Route::delete('users/delete/{id}', 'UserController@delete')->name('users.delete');
 
 Route::get('pets/list', 'PetsController@index')->name('pets.list');
 Route::get('pets/details', 'PetsController@details')->name('pets.details');
@@ -32,4 +32,4 @@ Route::get('pets/add', 'PetsController@add')->name('pets.add');
 Route::post('pets/add', 'PetsController@store');
 Route::get('pets/edit/{id}', 'PetsController@edit')->name('pets.edit');
 Route::post('pets/update/{id}', 'PetsController@update');
-Route::post('pets/delete/{id}', 'PetsController@delete')->name('pets.delete');
+Route::delete('pets/list/{id}', 'PetsController@delete')->name('pets.delete');

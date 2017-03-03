@@ -21,7 +21,7 @@ class UserController extends Controller
     public function index()
     {
         $viewModel['users']=User::paginate(15);
-        return view('index', $viewModel);
+        return view('list-users', $viewModel);
     }
 
     public function add()
@@ -63,7 +63,7 @@ class UserController extends Controller
             return redirect(404);
         }
 
-        return view('details',['user'=>$user]);
+        return view('user-details',['user'=>$user]);
     }
 
     public function update($id, Request $request)
