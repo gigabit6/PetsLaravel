@@ -33,6 +33,6 @@ class UserController extends Controller
 
     public function delete()
     {
-        return view('deleteUser');
+        redirect('index');
     }
 }
