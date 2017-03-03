@@ -25,13 +25,18 @@ class PetsController extends Controller
         return view('addPet');
     }
 
-    public function edit()
+    public function edit($id)
     {
         return view('editPet');
     }
 
-    public function delete()
+    public function delete($id)
     {
         return view('deletePet');
+    }
+
+    public function store($id)
+    {
+
     }
 }

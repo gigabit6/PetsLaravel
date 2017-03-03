@@ -26,13 +26,17 @@ class UserController extends Controller
         return view('addUser');
     }
 
-    public function edit()
+    public function edit($id)
     {
         return view('editUser');
     }
 
-    public function delete()
+    public function delete($id)
     {
         redirect('index');
+    }
+
+    public function store($id) {
+
     }
 }
