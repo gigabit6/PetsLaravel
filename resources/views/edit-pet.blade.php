@@ -4,7 +4,7 @@
  * User: Gergana
  * Date: 03-Mar-17
  * Time: 5:01 PM
- */
+ */ ?>
 
 @extends('layouts.master')
 
