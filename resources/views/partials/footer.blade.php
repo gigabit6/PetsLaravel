@@ -7,7 +7,7 @@
  */ ?>
 <footer>
     <div class="pull-right">
-        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+        Pet Shop By Gergana, Todor and Vili
     </div>
     <div class="clearfix"></div>
 </footer>
