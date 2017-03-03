@@ -23,7 +23,7 @@ class PetsController extends Controller
     }
 
     public function index() {
-        $pets['pets'] = Pet::paginate(10);
+        $pets['pets'] = Pet::orderBy('id','DESC')->paginate(15);
         return view('list-pets', $pets);
     }
 
