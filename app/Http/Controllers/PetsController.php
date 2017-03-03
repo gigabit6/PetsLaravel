@@ -65,6 +65,18 @@ class PetsController extends Controller
         return view('edit-pet',['pet'=>$pet]);
     }
 
+    public function details($id)
+    {
+        $pet = Pet::find($id);
+
+        if($pet == null)
+        {
+            return redirect(404);
+        }
+
+        return view('details',['pet'=>$pet]);
+    }
+
     public function update($id, Request $request)
     {
         $pet = Pet::find($id);

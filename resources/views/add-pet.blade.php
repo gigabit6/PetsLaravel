@@ -17,9 +17,9 @@
         <h1>Add new pet</h1>
 
         <form method="POST" enctype="multipart/form-data">
-            {{--<div class="form-group">--}}
-                {{--<input type="hidden" class="form-control" name="user_id" value="{{ Auth::user->id}}" placeholder="enter name" required="required"/>--}}
-            {{--</div>--}}
+            <div class="form-group">
+                <input type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id}}" placeholder="enter name" required="required"/>
+            </div>
             <div class="form-group">
                 <input type="text" class="form-control" name="name" placeholder="enter name" required="required"/>
             </div>

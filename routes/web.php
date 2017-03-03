@@ -27,6 +27,7 @@ Route::post('users/update/{id}', 'UserController@update');
 Route::post('users/delete/{id}', 'UserController@delete')->name('users.delete');
 
 Route::get('pets/list', 'PetsController@index')->name('pets.list');
+Route::get('pets/details', 'PetsController@details')->name('pets.details');
 Route::get('pets/add', 'PetsController@add')->name('pets.add');
 Route::post('pets/add', 'PetsController@store');
 Route::get('pets/edit/{id}', 'PetsController@edit')->name('pets.edit');
