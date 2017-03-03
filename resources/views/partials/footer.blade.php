@@ -6,7 +6,7 @@
  * Time: 4:46 PM
  */ ?>
 <footer>
-    <div class="pull-right">
+    <div class="pull-right footer_fixed">
         Pet Shop By Gergana, Todor and Vili
     </div>
     <div class="clearfix"></div>

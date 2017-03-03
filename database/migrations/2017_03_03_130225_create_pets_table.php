@@ -17,7 +17,7 @@ class CreatePetsTable extends Migration
             $table->increments('id');
             $table->string('name',255);
             $table->string('type',255);
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('photo',255);
             $table->timestamps();

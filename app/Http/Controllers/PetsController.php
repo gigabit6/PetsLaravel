@@ -13,6 +13,7 @@ namespace App\Http\Controllers;
 use App\Entities\Pet;
 use Illuminate\Http\Request;
 use File;
+use Illuminate\Support\Facades\Auth;
 
 
 class PetsController extends Controller
@@ -23,8 +24,16 @@ class PetsController extends Controller
     }
 
     public function index() {
-        $pets['pets'] = Pet::orderBy('id','DESC')->paginate(15);
+        $pets['pets'] = Pet::orderBy('id')->whereNull('user_id')->paginate(15);
+
+
         return view('list-pets', $pets);
+    }
+
+    public function indexMyPets() {
+        $pets['pets'] = Pet::orderBy('id')->where('user_id','=',Auth::user()->id)->paginate(15);
+
+        return view('list-mypets', $pets);
     }
 
     public function add()
@@ -37,7 +46,6 @@ class PetsController extends Controller
         $p = new Pet();
         $p->name = $request->input('name');
         $p->type = $request->input('type');
-        $p->user_id = $request->input('user_id');
 
         $file = $request->file('photo');
 
@@ -118,5 +126,15 @@ class PetsController extends Controller
         $pet->delete();
 
         return back()->with('message','successfully deleted!');
+    }
+    public function buy($id){
+
+        $pet = Pet::find($id);
+
+        $pet->user_id = Auth::user()->id;
+
+        $pet->save();
+
+        return back()->with('message','successfully bought!');
     }
 }

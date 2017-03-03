@@ -20,8 +20,8 @@ class UserController extends Controller
 
     public function index()
     {
-        $viewModel['users']=User::paginate(15);
-        return view('list-users', $viewModel);
+        $users['users'] = User::orderBy('id')->paginate(15);
+        return view('list-users', $users);
     }
 
     public function add()

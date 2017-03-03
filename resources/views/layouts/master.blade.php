@@ -20,9 +20,9 @@
 <body class="nav-md">
 <div class="container body">
     <div class="main_container" id="main-container">
-        @include('partials.header')
-        @include('partials.sidebar')
 
+        @include('partials.sidebar')
+        @include('partials.header')
         <div class="right_col" role="main">
 
             <div class="breadcrumbs" id="breadcrumbs">

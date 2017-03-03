@@ -21,10 +21,11 @@
             <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                    <li><a></i> Home <span class="fa fa-chevron-down"></span></a></li>
+                    <li><a href="{{route('home')}}"></i> Home <span class="fa fa-chevron-down"></span></a></li>
                     <li><a href="{{route('user.list')}}">List all User</a></li>
                     <li><a href="{{route('users.add')}}">Add an User</a></li>
                     <li><a href="{{route('pets.list')}}">List all Pets</a></li>
+                    <li><a href="{{route('mypets.list')}}">List My Pets</a></li>
                     <li><a href="{{route('pets.add')}}">Add Pet</a></li>
 
                 </ul>

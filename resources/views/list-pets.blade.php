@@ -18,8 +18,14 @@
                 {{csrf_field()}}
                 <input type="hidden" value="DELETE" name="_method">
             </form>
-                <a href="{{route('pets.edit',$p->id)}}" class="btn btn-info pull-right">edit</a>
+
+                <a href="{{route('pets.edit',$p->id)}}" class="btn btn-info">edit</a>
             @endif
+                <form action="{{route('pets.buy',$p->id)}}" method="POST" style="display:inline-table;">
+                    <button class="btn btn-success text-center">Buy</button>
+                    {{csrf_field()}}
+                    <input type="hidden" value="POST" name="_method">
+                </form>
             <img src="{{URL::asset($p->photo)}}" alt="" class="img-responsive" style="max-width: 100%;max-height: 100%">
 
             <div class="caption">
