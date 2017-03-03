@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('users/list', 'UserController@index')->name('pets.list');
+Route::get('users/list', 'UserController@index')->name('user.list');
 Route::get('users/addUser', 'UserController@addUser')->name('users.add');
 Route::post('users/addUser', 'UserController@store');
 Route::get('users/editUser/{id}', 'UserController@editUser')->name('users.edit');
