@@ -10,6 +10,21 @@
 @section('content')
 <div class="col-md-12">
     @if(count($pets) > 0)
+        <div>
+            <form action="{{route('pets.list')}}" method="POST">
+                <select name="filter-pets" onchange="this.form.submit()">
+                    <option value="all"></option>
+                    <option value="all">All</option>
+                    <option value="dog">Dogs</option>
+                    <option value="cat">Cats</option>
+                    <option value="fish">Fish</option>
+                    <option value="hamster">Hamsters</option>
+                </select>
+                {{csrf_field()}}
+                <input type="hidden" value="POST" name="_method">
+            </form>
+        </div>
+        <hr>
     @foreach($pets as $p)
     <div class="col-sm-4 col-lg-4 col-md-4">
         <div class="thumbnail" style="overflow: auto; min-height: 390px;">
@@ -33,13 +48,28 @@
                 <h4><a href="{{route('pets.details',$p->id)}}">{{$p->name}}</a>
                 </h4>
 
-                <p>{{$p->type}}</p>
+                <p style="text-transform: capitalize;">{{$p->type}}</p>
             </div>
         </div>
 
     </div>
     @endforeach
         @else
+        <div>
+            <form action="{{route('pets.list')}}" method="POST">
+                <select name="filter-pets" onchange="this.form.submit()">
+                    <option value="all"></option>
+                    <option value="all">All</option>
+                    <option value="dog">Dogs</option>
+                    <option value="cat">Cats</option>
+                    <option value="fish">Fish</option>
+                    <option value="hamster">Hamsters</option>
+                </select>
+                {{csrf_field()}}
+                <input type="hidden" value="POST" name="_method">
+            </form>
+        </div>
+        <hr>
             <div>No pets available</div>
         @endif
 </div>

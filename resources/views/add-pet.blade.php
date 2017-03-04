@@ -23,8 +23,14 @@
             <div class="form-group">
                 <input type="text" class="form-control" name="name" placeholder="Enter Name" required="required"/>
             </div>
+
             <div class="form-group">
-                <input type="text" name="type" class="form-control" placeholder="Enter type" required="required"/>
+                <select name="type" class="form-control" required="required">
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                    <option value="fish">Fish</option>
+                    <option value="hamster">Hamster</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="file" name="photo" required="required"/>

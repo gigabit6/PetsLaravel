@@ -27,7 +27,7 @@
                         <h4><a href="{{route('pets.details',$p->id)}}">{{$p->name}}</a>
                         </h4>
 
-                        <p>{{$p->type}}</p>
+                        <p style="text-transform: capitalize;">{{$p->type}}</p>
                     </div>
                 </div>
 

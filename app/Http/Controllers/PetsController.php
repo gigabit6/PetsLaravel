@@ -26,7 +26,6 @@ class PetsController extends Controller
     public function index() {
         $pets['pets'] = Pet::orderBy('id')->whereNull('user_id')->paginate(15);
 
-
         return view('list-pets', $pets);
     }
 
@@ -136,5 +135,13 @@ class PetsController extends Controller
         $pet->save();
 
         return back()->with('message','successfully bought!');
+    }
+
+    public function filterPets(Request $request) {
+        $filter = $request->input('filter-pets');
+
+        $pets['pets'] = $filter == 'all' ? Pet::orderBy('id')->paginate(15) : Pet::orderBy('id')->where('type','=',$filter)->paginate(15);
+
+        return view('list-pets', $pets);
     }
 }
