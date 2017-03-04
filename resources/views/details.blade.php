@@ -18,17 +18,14 @@
         <h1>{{$pet->name}}</h1>
 
         <div class="form-group">
-            <a href="{{URL::previous()}}" class="btn btn-info">back</a>
+            <h3> {{$pet->type}}</h3>
         </div>
         <div class="form-group">
-            <p>{{$pet->name}} $</p>
+            <img src="{{URL::asset($pet->photo)}}" class="img-responsive" style="max-height: 300px">
         </div>
 
         <div class="form-group">
-            <p> {{$pet->type}}</p>
-        </div>
-        <div class="form-group">
-            <img src="{{URL::asset($pet->imagePath)}}" class="img-responsive">
+            <a href="{{URL::previous()}}" class="btn btn-info">Back</a>
         </div>
     </div>
 @endsection

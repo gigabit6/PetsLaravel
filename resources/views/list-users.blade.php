@@ -33,7 +33,7 @@
                         {{$u->email}}
                     </td>
                     <td>
-                        {{$u->isAdmin}}
+                        {{$u->isAdmin ? 'Yes':"No"}}
                     </td>
                     <td>
                         <form action="{{route('users.delete',$u->id)}}" method="POST" style="display:inline-table;">

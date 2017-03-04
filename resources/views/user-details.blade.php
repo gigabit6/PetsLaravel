@@ -16,22 +16,17 @@
             </div>
         @endif
         <h1>{{$user->name}}</h1>
-
         <div class="form-group">
-            <a href="{{URL::previous()}}" class="btn btn-info">back</a>
-        </div>
-        <div class="form-group">
-            <p>{{$user->name}} $</p>
-        </div>
-
-        <div class="form-group">
-            <p> {{$user->email}}</p>
+            <p>Email: {{$user->email}}</p>
         </div>
 
             <div class="form-group">
-                <p> {{$user->isAdmin}}</p>
+                <p> Is Admin :{{$user->isAdmin? 'Yes':'No'}}</p>
             </div>
 
+        <div class="form-group">
+            <a href="{{URL::previous()}}" class="btn btn-info">Back</a>
+        </div>
     </div>
 @endsection
 

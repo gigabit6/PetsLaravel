@@ -1,5 +1,7 @@
 @extends('layouts.master')
 @section('content')
+    <div class="row">
+        <div class="col-md-6">
 <form method="POST">
     <div class="form-group">
         <label for="email">Email:</label>
@@ -23,4 +25,6 @@
     {{csrf_field()}}
     <button class="btn btn-success">Send</button>
 </form>
+        </div>
+    </div>
 @endsection

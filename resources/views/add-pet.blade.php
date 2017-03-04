@@ -17,14 +17,14 @@
         <h1>Add new pet</h1>
 
         <form method="POST" enctype="multipart/form-data">
+            <!--<div class="form-group">
+                <input type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id}}" required="required"/>
+            </div>-->
             <div class="form-group">
-                <input type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id}}" placeholder="enter name" required="required"/>
+                <input type="text" class="form-control" name="name" placeholder="Enter Name" required="required"/>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="name" placeholder="enter name" required="required"/>
-            </div>
-            <div class="form-group">
-                <input type="text" name="type" class="form-control" placeholder="enter type" required="required"/>
+                <input type="text" name="type" class="form-control" placeholder="Enter type" required="required"/>
             </div>
             <div class="form-group">
                 <input type="file" name="photo" required="required"/>

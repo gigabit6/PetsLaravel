@@ -17,23 +17,20 @@
         @endif
         <h1>Edit user</h1>
 
-        <div class="form-group">
-            <a href="{{URL::previous()}}" class="btn btn-info">back</a>
-        </div>
         <form method="POST" enctype="multipart/form-data">
             <div class="form-group">
-                <input type="text" class="form-control" name="name" value="{{$user->name}}" placeholder="enter name"
+                <input type="text" class="form-control" name="name" value="{{$user->name}}" placeholder="Enter Name"
                        required="required"/>
             </div>
 
             <div class="form-group">
-                <input type="number" name="email" class="form-control"  value="{{$user->email}}"
-                       placeholder="enter email" required="required"/>
+                <input type="text" name="email" class="form-control" value="{{$user->email}}"
+                       placeholder="Enter Email" required="required"/>
             </div>
 
             <div class="form-group">
-                <input type="password" name="password" class="form-control"  value="{{$user->password}}"
-                       placeholder="enter password" required="required"/>
+                <input type="password" name="password" class="form-control"
+                       placeholder="New Password" required="required"/>
             </div>
 
             <div class="form-group">
@@ -43,7 +40,10 @@
 
             <input type="hidden" value="PUT" name="_method"/>
             {{csrf_field()}}
+            <a href="{{URL::previous()}}" class="btn btn-info">Back</a>
             <button class="btn btn-success">Save</button>
         </form>
+
+
     </div>
 @endsection
