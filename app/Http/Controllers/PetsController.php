@@ -105,7 +105,7 @@ class PetsController extends Controller
             $newFileName .= '.'.$file->getClientOriginalExtension();
             $file->move('photos',$newFileName);
             $dbPath = "photos/$newFileName";
-            $pet->imagePath = $dbPath;
+            $pet->photo = $dbPath;
         }
 
         $pet->save();
@@ -121,7 +121,7 @@ class PetsController extends Controller
         {
             return redirect(404);
         }
-
+        File::delete($pet->photo);
         $pet->delete();
 
         return back()->with('message','successfully deleted!');

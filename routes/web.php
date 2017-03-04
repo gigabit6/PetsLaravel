@@ -36,7 +36,7 @@ Route::get('pets/list', 'PetsController@index')->name('pets.list');
 Route::post('pets/list', 'PetsController@filterPets');
 Route::get('pets/details/{id}', 'PetsController@details')->name('pets.details');
 Route::get('pets/edit/{id}', 'PetsController@edit')->name('pets.edit');
-Route::post('pets/update/{id}', 'PetsController@update');
+Route::post('pets/edit/{id}', 'PetsController@update');
 Route::get('pets/list/mypets', 'PetsController@indexMyPets')->name('mypets.list');
 Route::post('pets/list/{id}', 'PetsController@buy')->name('pets.buy');
 

@@ -34,7 +34,7 @@
                 <input type="file" name="photo"/>
             </div>
             <img src="{{URL::asset($pet->photo)}}" alt="" class="img-responsive" style="max-height: 250px">
-            <input type="hidden" value="PUT" name="_method"/>
+            <input type="hidden" value="POST" name="_method"/>
             {{csrf_field()}}
             <a href="{{URL::previous()}}" class="btn btn-info">Back</a>
             <button class="btn btn-success">Save</button>
