@@ -19,7 +19,7 @@
                required="required"/>
     </div>
 
-    <input type="hidden" value="PUT" name="_method"/>
+    <input type="hidden" value="POST" name="_method"/>
     {{csrf_field()}}
     <button class="btn btn-success">Send</button>
 </form>

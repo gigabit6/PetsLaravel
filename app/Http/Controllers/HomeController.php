@@ -36,7 +36,7 @@ class HomeController extends Controller
         $email = $request->input('email');
 
 
-        Mail::send('email-template', ['name' => $name, 'email' => $email], function ($m) use ($email, $name) {
+        Mail::send('emails/email-template', ['name' => $name, 'email' => $email], function ($m) use ($email, $name) {
             $m->from('no-reply@petshop.com', 'Your feedback');
 
             $m->to($email, $name)->subject('Thanks!');
