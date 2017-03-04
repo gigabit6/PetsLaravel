@@ -9,6 +9,7 @@
 
 @section('content')
     <div class="col-md-12">
+        @if(count($users) > 0)
         <table class="table table-stripped">
             <tr>
                 <th>
@@ -48,6 +49,9 @@
                 </tr>
             @endforeach
         </table>
+        @else
+            <div>No users available</div>
+        @endif
     </div>
 
 @endsection

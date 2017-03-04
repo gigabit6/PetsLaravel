@@ -9,6 +9,7 @@
 
 @section('content')
 <div class="col-md-12">
+    @if(count($pets) > 0)
     @foreach($pets as $p)
     <div class="col-sm-4 col-lg-4 col-md-4">
         <div class="thumbnail" style="overflow: auto; min-height: 390px;">
@@ -38,6 +39,9 @@
 
     </div>
     @endforeach
+        @else
+            <div>No pets available</div>
+        @endif
 </div>
 
 @endsection
