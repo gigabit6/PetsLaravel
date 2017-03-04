@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -35,7 +36,7 @@ class UserController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = $request->input('password');
-        $user->isAdmin = $request->input('isAdmin');
+        $user->isAdmin = $request->input('isAdmin') == 'on' ? 1 : 0;
 
         $user->save();
 
