@@ -39,7 +39,7 @@ Route::get('pets/edit/{id}', 'PetsController@edit')->name('pets.edit');
 Route::post('pets/edit/{id}', 'PetsController@update');
 Route::get('pets/list/mypets', 'PetsController@indexMyPets')->name('mypets.list');
 Route::post('pets/list/{id}', 'PetsController@buy')->name('pets.buy');
-
+Route::post('pets/details/{id}', 'PetsController@addComments')->name('pets.addComments');
 
 Route::get('users/details/{id}', 'UserController@details')->name('user.details');
 

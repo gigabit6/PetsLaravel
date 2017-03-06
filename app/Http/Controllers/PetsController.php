@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 
 
 use App\Entities\Pet;
+use App\Entities\Comment;
 use Illuminate\Http\Request;
 use File;
 use Illuminate\Support\Facades\Auth;
@@ -57,7 +58,7 @@ class PetsController extends Controller
         $p->photo = $dbPath;
         $p->save();
 
-        return back()->with('message','successfully added!');
+        return back()->with('message', 'Successfully Added!');
     }
 
     public function edit($id)
@@ -72,6 +73,18 @@ class PetsController extends Controller
         return view('edit-pet',['pet'=>$pet]);
     }
 
+    public function addComments($id, Request $request)
+    {
+        $c = new Comment();
+        $c->message = $request->input('message');
+        $c->user_id = Auth::user()->id;
+        $c->pet_id = $id;
+
+        $c->save();
+
+        return back()->with('message', 'Successfully Added Comment!');
+    }
+
     public function details($id)
     {
         $pet = Pet::find($id);
@@ -81,7 +94,9 @@ class PetsController extends Controller
             return redirect(404);
         }
 
-        return view('details',['pet'=>$pet]);
+        $comments['comments'] = Comment::orderBy('id')->where('pet_id', '=', $id)->paginate(15);
+
+        return view('details', ['pet' => $pet])->with($comments);
     }
 
     public function update($id, Request $request)

@@ -11,5 +11,11 @@ class Pet extends Eloquent {
     {
         return $this->hasMany('App\Entities\Comment');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
 }
 

@@ -4,7 +4,7 @@ namespace App\Entities;
 use Eloquent;
 
 class Comment extends Eloquent{
-	protected $table = 'comments';
+	protected $table = 'pet_comment';
 
 	public function product()
 	{

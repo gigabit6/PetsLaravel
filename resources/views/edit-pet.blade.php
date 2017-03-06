@@ -17,7 +17,6 @@
         @endif
         <h1>Edit Pet</h1>
 
-
         <form method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <input type="text" class="form-control" name="name" value="{{$pet->name}}" placeholder="enter name"
