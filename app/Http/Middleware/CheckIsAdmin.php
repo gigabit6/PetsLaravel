@@ -23,7 +23,7 @@ class CheckIsAdmin
     public function handle($request, Closure $next)
     {
         if (Auth::user()->isAdmin != 1) {
-            return redirect(404);
+            return redirect('');
         }
 
         return $next($request);

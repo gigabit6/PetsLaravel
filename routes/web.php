@@ -40,12 +40,11 @@ Route::post('pets/edit/{id}', 'PetsController@update');
 Route::get('pets/list/mypets', 'PetsController@indexMyPets')->name('mypets.list');
 Route::post('pets/list/{id}', 'PetsController@buy')->name('pets.buy');
 Route::post('pets/details/{id}', 'PetsController@addComments')->name('pets.addComments');
-
 Route::get('users/details/{id}', 'UserController@details')->name('user.details');
 
 Route::group(['middleware' => 'isAdmin'], function () {
-    Route::get('users/list', 'UserController@index')->name('user.list');
 
+    Route::get('users/list', 'UserController@index')->name('user.list');
     Route::get('users/add', 'UserController@add')->name('users.add');
     Route::post('users/add', 'UserController@store');
     Route::get('users/edit/{id}', 'UserController@edit')->name('users.edit');
@@ -54,4 +53,5 @@ Route::group(['middleware' => 'isAdmin'], function () {
     Route::get('pets/add', 'PetsController@add')->name('pets.add');
     Route::post('pets/add', 'PetsController@store');
     Route::delete('pets/list/{id}', 'PetsController@delete')->name('pets.delete');
+
 });

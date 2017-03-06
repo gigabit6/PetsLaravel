@@ -23,6 +23,7 @@
         <div class="form-group">
             <img src="{{URL::asset($pet->photo)}}" class="img-responsive" style="max-height: 300px">
         </div>
+        @if(count($comments) >0)
         <div class="panel panel-default" style="width: 400px">
             <div class="panel-heading">Pet Comments:</div>
             <div class="panel-body">
@@ -33,7 +34,7 @@
                 </ol>
             </div>
         </div>
-
+        @endif
         <div class="panel panel-default" style="width: 400px">
             <div class="panel-body">
                 <form method="POST" enctype="multipart/form-data" action="{{route('pets.addComments',$pet->id)}}">

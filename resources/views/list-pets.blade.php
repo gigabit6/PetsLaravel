@@ -10,9 +10,11 @@
 @section('content')
 <div class="col-md-12">
     @if(count($pets) > 0)
-        <div>
+        <div class="row">
+            <div class="col-md-3">
+                <label> Filter By Type</label>
             <form action="{{route('pets.list')}}" method="POST">
-                <select name="filter-pets" onchange="this.form.submit()">
+                <select name="filter-pets" onchange="this.form.submit()" class="form-control">
                     <option value="all"></option>
                     <option value="all">All</option>
                     <option value="dog">Dogs</option>
@@ -23,6 +25,7 @@
                 {{csrf_field()}}
                 <input type="hidden" value="POST" name="_method">
             </form>
+        </div>
         </div>
         <hr>
     @foreach($pets as $p)
